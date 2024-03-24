@@ -12,17 +12,16 @@
 
 Very experimental, very jank transformative fanwork viewer (sourced from the Archive of Our Own) using the Arduino UNO and a 0.96" 128x64 graphical SSD1306 OLED Display. 
 
-Takes a work ID, then fetches and displays its metadata, author notes/summary and the work itself on the OLED screen. This content has been truncated into sections due to the Arduino's memory constraints, as well as limitations with the implementation of the vertical scrolling (if the text overflows, which it will, it will automatically scroll downwards) [^1]. 
+## What it does
+Takes a work ID, then fetches the work from [AO3](https://archiveofourown.org/) and displays its metadata, the author's summary/notes and the work itself on the OLED screen. 
+This content has been truncated into sections due to the Arduino's memory constraints, as well as limitations with the implementation of the vertical scrolling (if the text overflows, which it will, it will automatically scroll downwards) [^1]. 
 
-To trigger movement to the next section, the switch is pressed.
+To trigger movement to the next section, the switch is pressed. 
 
-AKA "Can it run Doom?" but for terminally online teenagers. 
+Basically, "Can it run Doom?" but for terminally online teenagers. 
 
-<br />
-<div align="center">
-  <video width="320" height="240" controls>
-  <source src="preview.mp4" type="video/mp4">
-</video>
+<div align = "center">
+<video src="https://github.com/phthallo/arduinooo/assets/84078890/86c35268-9c28-4ed9-9690-4a78c1adfe1a" height="100"/></video>
 </div>
 
 The answer is yes, it can!
