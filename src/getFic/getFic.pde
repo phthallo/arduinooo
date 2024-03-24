@@ -9,7 +9,7 @@ import java.util.*;
 import processing.serial.*;
 Serial arduino;
 int i = 0;
-String ficId = "35133730";
+String ficId = "";
 
 public void setup() {
   String portName = Serial.list()[0];
@@ -39,8 +39,7 @@ public static List<String> splitEqually(String text, int size) {
 
 
 String getFic(String ao3Id, int element) {
-  String[] attributesClassName = {"rating tags", "warning tags", "category tags", "fandom tags", "relationship tags", "character tags", "freeform tags", "language", "collections", "dl.stats"};
-  String[] ficClassName = {"title heading", "byline heading", "summary module", "notes module"};
+  String[] attributesClassName = {"rating tags", "warning tags", "category tags", "fandom tags", "relationship tags", "character tags", "freeform tags", "language", "collections", "dl.stats", "title heading", "byline heading", "summary module", "notes module"};
   List<String> data = new ArrayList<String> ();
   String url = "https://www.archiveofourown.org/works/" + ao3Id;
   Document doc;
@@ -60,10 +59,6 @@ String getFic(String ao3Id, int element) {
 
   if (doc != null) {
     for (String item : attributesClassName) {
-      Elements att = doc.getElementsByClass(item);
-      data.add(att.text()+"\n");
-    }
-    for (String item: ficClassName) {
       Elements att = doc.getElementsByClass(item);
       data.add(att.text()+"\n");
     }
