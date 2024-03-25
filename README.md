@@ -13,12 +13,11 @@
 Very experimental, very jank transformative fanwork viewer (sourced from the Archive of Our Own) using the Arduino UNO and a 0.96" 128x64 graphical SSD1306 OLED Display. 
 
 ## What it does
-Takes a work ID, then fetches the work from [AO3](https://archiveofourown.org/) and displays its metadata, the author's summary/notes and the work itself on the OLED screen. 
-This content has been truncated into sections due to the Arduino's memory constraints, as well as limitations with the implementation of the vertical scrolling (if the text overflows, which it will, it will automatically scroll downwards) [^1]. 
+Takes a single work ID, then fetches the work from [AO3](https://archiveofourown.org/) and displays its metadata, the author's summary/notes and the work itself on the OLED screen. 
 
-To trigger movement to the next section, the switch is pressed. 
+As the content of the fanfiction has been truncated into sections due to some technical constraints [^1], to trigger movement to the next section, the switch is pressed. 
 
-Basically, "Can it run Doom?" but for terminally online teenagers. 
+Basically it's "Can it run Doom?" but for terminally online teenagers. 
 
 <div align = "center">
 <video src="https://github.com/phthallo/arduinooo/assets/84078890/86c35268-9c28-4ed9-9690-4a78c1adfe1a" height="100"/></video>
@@ -28,8 +27,8 @@ The answer is yes, it can!
 
 (Better preview vid -> coming soon)
 
+## Getting Started
 ### Tools
-
 * [Processing](https://processing.org/) and the [Processing Serial library](https://processing.org/reference/libraries/serial/index.html)
 * [Arduino kit](https://www.arduino.cc/)
 * [Jsoup library](https://jsoup.org/)
@@ -48,15 +47,21 @@ It makes use of the following components:
 
 (Circuit design -> coming soon)
 
+### Using Arduinooo
+Using Processing in conjunction with the standard Arduino libraries allows internet access without the need for a Wi-Fi shield. Since Processing has Java support, AO3 content can be obtained using Jsoup (a Java library for webscraping) in Processing (`getFic.pde`). This is then sent to the Arduino and its components, using the Serial library. 
+Likewise, information from the Arduino (in this case, registering the switch being pressed) can be read in Processing and used to trigger another event (loading the next section of content). 
+
+This requires the Arduino program (`output.ino`) to be uploaded to the Arduino first, then the Processing program. 
+Therefore, please ensure that the Arduino IDE is **closed** before running `getFic.pde`.
  
 ## Known Issues
 * Jsoup only retrieves the first chapter of content 
-* Punctuation like `”` and `–` do not render correctly. 
-* Scrolling can go off the screen.
-
 
 ## Notes
 I've never used Processing (or Java, which it is based on) before this. I've used C++ maybe once before (for another Arduino project), so everything is likely to be very unoptimised.
+
+### Limitations
+There is no support for custom text formatting (bold, italics, centre-align etc), or for images/other non-text content embedded in the fic.  
 
 
 [^1]: The Adafruit SSD1306 library doesn't officially have support for vertical scrolling, but it does have support for horizontal and diagonal ones. My workaround is liable to errors, since it draws text in a negative region to imitate the scrolling effect.

@@ -29,10 +29,12 @@ void draw(){
 
 
 public static List<String> splitEqually(String text, int size) {
-    List<String> ret = new ArrayList<String>((text.length() + size - 1) / size);
-    for (int start = 0; start < text.length(); start += size) {
-      String sub = text.substring(start, Math.min(text.length(), start + size));
-      ret.add(sub);
+    String new_text = text.replaceAll("\n", "                     ");
+    List<String> ret = new ArrayList<String>((new_text.length() + size - 1) / size);
+    for (int start = 0; start < new_text.length(); start += size) {
+      String sub = new_text.substring(start, Math.min(new_text.length(), start + size));
+      String resub = sub.replaceAll("                     ", "\n");
+      ret.add(resub);
     }
     return ret;
 }
@@ -60,14 +62,19 @@ String getFic(String ao3Id, int element) {
   if (doc != null) {
     for (String item : attributesClassName) {
       Elements att = doc.getElementsByClass(item);
-      data.add(att.text()+"\n");
+      data.add(att.text()+"\n\n");
     }
     Elements body = doc.select("div.userstuff").select("p");
     for (Element item : body) {
       data.add(item.text()+"\n");
     }  
-    String merged = String.join("\n", data);
-    List<String> equal = splitEqually(merged, 150);
+    String merged = (String.join("", data))
+    .replace("“", "\"")
+    .replace("”", "\"")
+    .replace("’", "'")
+    .replace("–", "-")
+    .replace("—", "--");
+    List<String> equal = splitEqually(merged, 336);
     return equal.get(element);
   }
   return "";
