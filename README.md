@@ -10,7 +10,7 @@
 </div>
 
 
-Very experimental, very jank transformative fanwork viewer (sourced from the Archive of Our Own) using the Arduino UNO and a 0.96" 128x64 graphical SSD1306 OLED Display. More of a proof-of-concept than anything usable :) 
+Very experimental, very jank transformative fanwork viewer (sourced from the Archive of Our Own) using the Arduino UNO and a 0.96" 128x64 graphical SPI SSD1306 OLED Display. More of a proof-of-concept than anything usable :) 
 
 ## What it does
 Takes a single work ID, then fetches the work from [AO3](https://archiveofourown.org/) and displays its metadata, the author's summary/notes and the work itself on the OLED screen. 
@@ -25,8 +25,6 @@ Basically it's "Can it run Doom?" but for terminally online teenagers.
 
 The answer is yes, it can!
 
-(Better preview vid -> coming soon)
-
 ### Setup
 * [Processing](https://processing.org/) and the [Processing Serial library](https://processing.org/reference/libraries/serial/index.html)
 * [Arduino kit](https://www.arduino.cc/)
@@ -39,12 +37,13 @@ It makes use of the following components:
 | Component | Quantity |
 | --------- | -------- |
 | Arduino UNO | 1 |
-| OLED Screen | 1 | 
+| SPI OLED Screen | 1 | 
 | Switch | 1 |
 | Male-male connecting wires | 8 |
 | Breadboard | 1 |
 
-(Circuit design -> coming soon)
+![image](https://github.com/phthallo/arduinooo/assets/84078890/729ddb42-dde9-424b-8043-dcae5230f1ac)
+
 
 Using Processing in conjunction with the standard Arduino libraries allows internet access without the need for a Wi-Fi shield. Since Processing has Java support, AO3 content can be obtained using Jsoup (a Java library for webscraping) in Processing (`getFic.pde`). This is then sent to the Arduino and its components, using the Serial library. 
 Likewise, information from the Arduino (in this case, registering the switch being pressed) can be read in Processing and used to trigger another event (loading the next section of content). 
