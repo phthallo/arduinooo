@@ -15,13 +15,13 @@ Very experimental, very jank transformative fanwork viewer (sourced from the Arc
 ## What it does
 Takes a single work ID, then fetches the work from [AO3](https://archiveofourown.org/) and displays its metadata, the author's summary/notes and the work itself on the OLED screen. 
 
-As the content of the fanfiction has been truncated into sections due to some technical constraints [^1], to trigger movement to the next section, the switch is pressed. 
+The content of the fanfiction has been truncated into sections due to some technical constraints [^1] - meaning it'll only scroll one section at a time. Pressing the switch at any point will load the next section.
 
-Basically it's "Can it run Doom?" but for terminally online teenagers. 
+Basically, it's "Can it run Doom?" but for terminally online teenagers. 
 
-<div align = "center">
-<video src="https://github.com/phthallo/arduinooo/assets/84078890/86c35268-9c28-4ed9-9690-4a78c1adfe1a" height="100"/></video>
-</div>
+https://github.com/phthallo/arduinooo/assets/84078890/dc814895-6ec4-45f5-ac8c-ded58b10df7f
+
+
 
 The answer is yes, it can!
 
