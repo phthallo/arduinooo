@@ -20,8 +20,18 @@ The content of the fanfiction has been truncated into sections due to some techn
 Basically, it's "Can it run Doom?" but for terminally online teenagers. 
 
 <div align = "center">
-<video src="https://github.com/phthallo/arduinooo/assets/84078890/4a0a7842-8a0d-4f2f-a22a-456a68769ca1
+<video src="https://github.com/user-attachments/assets/c370b94c-faeb-47ec-8999-28287c371e7f
 " height = "100"/></video></div>
+
+
+
+
+
+
+
+
+
+
 
 The answer is yes, it can!
 
